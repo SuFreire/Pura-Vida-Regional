@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pura Vida Regional - A Sua Experiência Gastronómica da Ilha da Madeira</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap');
+        
+        .font-dancing { font-family: 'Dancing Script', cursive; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(255,165,0,0.15), rgba(255,165,0,0.1)),
+                        url('https://ik.imagekit.io/ij9blp5q7/Lapas.jpg?updatedAt=1757073089295');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-bg h1 {
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+        }
+        
+        .section-floral {
+            background-image: url('https://ik.imagekit.io/ij9blp5q7/fundo-floral.png');
+            background-size: 200px;
+            background-repeat: repeat;
+            background-blend-mode: overlay;
+        }
+        
+        .dish-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .dish-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-float i {
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body class="font-montserrat bg-orange-50 text-gray-800">
+    <div class="fixed top-4 right-4 z-50">
+        <button id="langToggle" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-full font-semibold transition-colors shadow-lg">
+            PT | EN
+        </button>
+    </div>
+
+    <a href="https://wa.me/351965666769" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <header class="hero-bg h-screen flex items-center justify-center text-white text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="font-dancing text-7xl md:text-9xl font-bold mb-6" data-pt="Pura Vida Regional" data-en="Regional Pure Life">
+                Pura Vida Regional
+            </h1>
+            <p class="text-2xl md:text-3xl mb-8 font-light" data-pt="A Sua Experiência Gastronómica da Ilha da Madeira" data-en="Your tropical culinary experience from Madeira Island">
+                A Sua Experiência Gastronómica da Ilha da Madeira
+            </p>
+            <a href="#menu" class="bg-teal-600 hover:bg-teal-700 text-white px-10 py-5 rounded-full text-xl font-bold transition-colors inline-block shadow-lg" data-pt="Descobrir Menu Exótico" data-en="Discover Exotic Menu">
+                Descobrir Menu Exótico
+            </a>
+        </div>
+    </header>
+
+    <section class="py-24 bg-yellow-50 section-floral">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-dancing text-5xl md:text-6xl font-bold text-center mb-16 text-teal-700" data-pt="Pratos Tropicais do Dia" data-en="Today's Tropical Dishes">
+                Pratos Tropicais do Dia
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="dish-card bg-white rounded-3xl overflow-hidden shadow-xl border-4 border-yellow-200">
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://ik.imagekit.io/ij9blp5q7/Espetada%202.jpg?updatedAt=1757073088863');">
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="font-montserrat text-2xl font-bold mb-2 text-teal-600" data-pt=Autêntica espetada à Madeirense em pau de louro" data-en="Authentic Madeiran Skewer on Bay Laurel Stick">
+                            Autêntica espetada à Madeirense em pau de louro
+                         </h3>
+                        <p class="text-gray-600 mb-4 font-light" data-pt="Espetada à Madeirense no tipico pau de louro" data-en="Authentic Madeiran Skewer on Bay Laurel Stick">
+                            Espetada à Madeirense no tipico pau de louro
+                        </p>
+                        <span class="text-amber-600 font-bold text-xl">€14.50</span>
+                    </div>
+                </div>
+
+
+                <div class="dish-card bg-white rounded-3xl overflow-hidden shadow-xl border-4 border-yellow-200">
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://ik.imagekit.io/ij9blp5q7/Peixe%20espada%20com%20banana.jpg?updatedAt=1757073093333');">
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="font-montserrat text-2xl font-bold mb-2 text-teal-600" data-pt="Espada com banana, especialidade da Madeira" data-en="Madeiran-style scabbardfish fillet with banana">
+                            Espada com banana, especialidade da Madeira
+                        </h3>
+                        <p class="text-gray-600 mb-4 font-light" data-pt="Espada com banana, especialidade da Madeira" data-en="Madeiran-style scabbardfish fillet with banana">
+                            Espada com banana, especialidade da Madeira
+                        </p>
+                        <span class="text-amber-600 font-bold text-xl">€21.00</span>
+                    </div>
+                </div>
+
+
+
+                <div class="dish-card bg-white rounded-3xl overflow-hidden shadow-xl border-4 border-yellow-200">
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://ik.imagekit.io/ij9blp5q7/Bolo%20do%20caco.jpg?updatedAt=1757073089069');">
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="font-montserrat text-2xl font-bold mb-2 text-teal-600" data-pt="Prego à Madeirense no Bolo do Caco" data-en="Madeiran-Style Steak on Bolo do Caco">
+                            Prego à Madeirense no Bolo do Caco
+                        </h3>
+                        <p class="text-gray-600 mb-4 font-light" data-pt="Prego à Madeirense no Bolo do Caco" data-en="Madeiran-Style Steak on Bolo do Caco">
+                            Prego à Madeirense no Bolo do Caco
+                        </p>
+                        <span class="text-amber-600 font-bold text-xl">€21.00</span>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="font-dancing text-5xl md:text-6xl font-bold text-center mb-16 text-teal-700" data-pt="Menu Completo da Ilha" data-en="Full Island Menu">
+                Menu Completo da Ilha
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="font-montserrat text-3xl font-bold mb-6 text-teal-600 border-b-4 border-amber-400 pb-2" data-pt="Entradas Exóticas" data-en="Exotic Starters">
+                        Entradas Exóticas
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-semibold text-xl" data-pt="Lapas Grelhadas" data-en="Grilled Limpets">Lapas Grelhadas</h4>
+                                <p class="text-gray-600 text-sm italic" data-pt="Com manteiga de alho e um toque de coco" data-en="With garlic butter and a hint of coconut">Com manteiga de alho e um toque de coco</p>
+                            </div>
+                            <span class="text-amber-600 font-bold text-lg">€14.00</span>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-semibold text-xl" data-pt="Pão de Alho Tropical" data-en="Tropical Garlic Bread">Pão de Alho Tropical</h4>
+                                <p class="text-gray-600 text-sm italic" data-pt="Pão do caco com manteiga de alho e salsa tropical" data-en="Bolo do caco with garlic butter and tropical salsa">Pão do caco com manteiga de alho e salsa tropical</p>
+                            </div>
+                            <span class="text-amber-600 font-bold text-lg">€6.50</span>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-semibold text-xl" data-pt="Queijo Fresco com Mel de Cana" data-en="Fresh Cheese with Cane Honey">Queijo Fresco com Mel de Cana</h4>
+                                <p class="text-gray-600 text-sm italic" data-pt="Servido com amêndoas torradas e mel de cana" data-en="Served with toasted almonds and cane honey">Servido com amêndoas torradas e mel de cana</p>
+                            </div>
+                            <span class="text-amber-600 font-bold text-lg">€10.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-montserrat text-3xl font-bold mb-6 text-teal-600 border-b-4 border-amber-400 pb-2" data-pt="Sabores da Terra e Mar" data-en="Flavors of Land and Sea">
+                        Sabores da Terra e Mar
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-semibold text-xl" data-pt="Espada com Banana e Maracujá" data-en="Black Scabbardfish with Banana & Passion Fruit">Espada com Banana e Maracujá</h4>
+                                <p class="text-gray-600 text-sm italic" data-pt="Peixe espada grelhado com banana frita e molho de maracujá" data-en="Grilled black scabbardfish with fried banana and passion fruit sauce">Peixe espada grelhado com banana frita e molho de maracujá</p>
+                            </div>
+                            <span class="text-amber-600 font-bold text-lg">€23.00</span>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-semibold text-xl" data-pt="Picado de Frutos do Mar" data-en="Seafood Stir-fry">Picado de Frutos do Mar</h4>
+                                <p class="text-gray-600 text-sm italic" data-pt="Mix de camarão, lula e peixe em molho de coco e especiarias" data-en="Mix of shrimp, squid, and fish in coconut and spice sauce">Mix de camarão, lula e peixe em molho de coco e especiarias</p>
+                            </div>
+                            <span class="text-amber-600 font-bold text-lg">€25.00</span>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-semibold text-xl" data-pt="Carne Vinha d'Alhos com Ervas Aromáticas" data-en="Marinated Pork with Aromatic Herbs">Carne Vinha d'Alhos com Ervas Aromáticas</h4>
+                                <p class="text-gray-600 text-sm italic" data-pt="Carne de porco marinada, cozinhada lentamente" data-en="Slow-cooked marinated pork">Carne de porco marinada, cozinhada lentamente</p>
+                            </div>
+                            <span class="text-amber-600 font-bold text-lg">€18.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-montserrat text-3xl font-bold mb-6 text-teal-600 border-b-4 border-amber-400 pb-2" data-pt="Sobremesas Divinas" data-en="Divine Desserts">
+                        Sobremesas Divinas
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-semibold text-xl" data-pt="Pudim de Maracujá" data-en="Passion Fruit Pudding">Pudim de Maracujá</h4>
+                                <p class="text-gray-600 text-sm italic" data-pt="Pudim cremoso com sementes de maracujá" data-en="Creamy pudding with passion fruit seeds">Pudim cremoso com sementes de maracujá</p>
+                            </div>
+                            <span class="text-amber-600 font-bold text-lg">€7.50</span>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-semibold text-xl" data-pt="Tarte de Manga e Coco" data-en="Mango and Coconut Pie">Tarte de Manga e Coco</h4>
+                                <p class="text-gray-600 text-sm italic" data-pt="Tarte leve com recheio de manga fresca e coco" data-en="Light pie with fresh mango and coconut filling">Tarte leve com recheio de manga fresca e coco</p>
+                            </div>
+                            <span class="text-amber-600 font-bold text-lg">€8.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-montserrat text-3xl font-bold mb-6 text-teal-600 border-b-4 border-amber-400 pb-2" data-pt="Bebidas Refrescantes" data-en="Refreshing Drinks">
+                        Bebidas Refrescantes
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-semibold text-xl" data-pt="Poncha da Casa" data-en="House Poncha">Poncha da Casa</h4>
+                                <p class="text-gray-600 text-sm italic" data-pt="Receita secreta com frutos tropicais" data-en="Secret recipe with tropical fruits">Receita secreta com frutos tropicais</p>
+                            </div>
+                            <span class="text-amber-600 font-bold text-lg">€8.00</span>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-semibold text-xl" data-pt="Sumo Natural de Maracujá" data-en="Natural Passion Fruit Juice">Sumo Natural de Maracujá</h4>
+                                <p class="text-gray-600 text-sm italic" data-pt="Sumo fresco e revigorante" data-en="Fresh and invigorating juice">Sumo fresco e revigorante</p>
+                            </div>
+                            <span class="text-amber-600 font-bold text-lg">€4.50</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-teal-50 section-floral">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-dancing text-5xl md:text-6xl font-bold text-center mb-16 text-teal-700" data-pt="Momentos" data-en="Moments">
+                Momentos 
+            </h2>
+            
+            <div class="relative">
+                <div id="gallery" class="overflow-hidden rounded-3xl shadow-2xl">
+                    <div id="gallerySlider" class="flex transition-transform duration-500 ease-in-out">
+                        <div class="w-full flex-shrink-0">
+                            <div class="h-96 md:h-[500px] bg-cover bg-center" style="background-image: url('https://ik.imagekit.io/ij9blp5q7/cocktail-praia.jpg?updatedAt=');">
+                                <div class="h-full bg-black bg-opacity-30 flex items-end">
+                                    <div class="p-8 text-white">
+                                        <h3 class="font-montserrat text-2xl font-bold mb-2" data-pt="Cocktails ao Pôr do Sol" data-en="Sunset Cocktails">Cocktails ao Pôr do Sol</h3>
+                                        <p data-pt="Aprecie a nossa seleção de bebidas na praia" data-en="Enjoy our drink selection on the beach">Aprecie a nossa seleção de bebidas na praia</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full flex-shrink-0">
+                            <div class="h-96 md:h-[500px] bg-cover bg-center" style="background-image: url('https://ik.imagekit.io/ij9blp5q7/pratos-exoticos.jpg?updatedAt=');">
+                                <div class="h-full bg-black bg-opacity-30 flex items-end">
+                                    <div class="p-8 text-white">
+                                        <h3 class="font-montserrat text-2xl font-bold mb-2" data-pt="Delícias Exóticas" data-en="Exotic Delights">Delícias Exóticas</h3>
+                                        <p data-pt="O melhor da gastronomia tropical" data-en="The best of tropical gastronomy">O melhor da gastronomia tropical</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full flex-shrink-0">
+                            <div class="h-96 md:h-[500px] bg-cover bg-center" style="background-image: url('https://ik.imagekit.io/ij9blp5q7/ambiente-restaurante.jpg?updatedAt=');">
+                                <div class="h-full bg-black bg-opacity-30 flex items-end">
+                                    <div class="p-8 text-white">
+                                        <h3 class="font-montserrat text-2xl font-bold mb-2" data-pt="O Nosso Paraíso" data-en="Our Paradise">O Nosso Paraíso</h3>
+                                        <p data-pt="Desfrute de um ambiente único e acolhedor" data-en="Enjoy a unique and cozy atmosphere">Desfrute de um ambiente único e acolhedor</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full flex-shrink-0">
+                            <div class="h-96 md:h-[500px] bg-cover bg-center" style="background-image: url('https://ik.imagekit.io/ij9blp5q7/ilha-paradisica.jpg?updatedAt=');">
+                                <div class="h-full bg-black bg-opacity-30 flex items-end">
+                                    <div class="p-8 text-white">
+                                        <h3 class="font-montserrat text-2xl font-bold mb-2" data-pt="Vistas de Tirar o Fôlego" data-en="Breathtaking Views">Vistas de Tirar o Fôlego</h3>
+                                        <p data-pt="Uma refeição com o melhor cenário da ilha" data-en="A meal with the best view on the island">Uma refeição com o melhor cenário da ilha</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="prevBtn" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-teal-800 p-3 rounded-full shadow-lg transition-all duration-300">
+                    <i class="fas fa-chevron-left text-xl"></i>
+                </button>
+                <button id="nextBtn" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-teal-800 p-3 rounded-full shadow-lg transition-all duration-300">
+                    <i class="fas fa-chevron-right text-xl"></i>
+                </button>
+                
+                <div class="flex justify-center mt-6 space-x-2">
+                    <button class="gallery-dot w-3 h-3 rounded-full bg-teal-600 transition-all duration-300" data-slide="0"></button>
+                    <button class="gallery-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-teal-400 transition-all duration-300" data-slide="1"></button>
+                    <button class="gallery-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-teal-400 transition-all duration-300" data-slide="2"></button>
+                    <button class="gallery-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-teal-400 transition-all duration-300" data-slide="3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-dancing text-5xl md:text-6xl font-bold text-center mb-16 text-teal-700" data-pt="O Que os Nossos Visitantes Dizem" data-en="What Our Visitors Say">
+                O Que os Nossos Visitantes Dizem
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="bg-yellow-50 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300 border-2 border-dashed border-amber-300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-amber-500 text-2xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="ml-4 text-gray-700 font-semibold text-lg">5/5</span>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic text-lg" data-pt="&quot;Uma verdadeira viagem ao paraíso! A comida é divinal e o ambiente faz-nos sentir de férias. A salada de frutas é imperdível!&quot;" data-en="&quot;A true trip to paradise! The food is divine and the atmosphere makes us feel on vacation. The fruit salad is a must-try!&quot;">
+                        "Uma verdadeira viagem ao paraíso! A comida é divinal e o ambiente faz-nos sentir de férias. A salada de frutas é imperdível!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 bg-gradient-to-br from-blue-400 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            M
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold text-gray-800 text-lg">Maria Santos</h4>
+                            <p class="text-gray-600 text-sm">Viajante Satisfeita</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-yellow-50 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300 border-2 border-dashed border-amber-300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-amber-500 text-2xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="ml-4 text-gray-700 font-semibold text-lg">5/5</span>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic text-lg" data-pt="&quot;O melhor peixe espada com banana que já provei! A poncha de maracujá é a cereja no topo do bolo. Simplesmente perfeito.&quot;" data-en="&quot;The best black scabbardfish with banana I've ever tasted! The passion fruit poncha is the cherry on top. Simply perfect.&quot;">
+                        "O melhor peixe espada com banana que já provei! A poncha de maracujá é a cereja no topo do bolo. Simplesmente perfeito."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 bg-gradient-to-br from-green-400 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            J
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold text-gray-800 text-lg">João Silva</h4>
+                            <p class="text-gray-600 text-sm">Entusiasta Gastronómico</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-yellow-50 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300 border-2 border-dashed border-amber-300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-amber-500 text-2xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="ml-4 text-gray-700 font-semibold text-lg">5/5</span>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic text-lg" data-pt="&quot;Adorei a atenção aos detalhes e o ambiente descontraído. O picado de frutos do mar é uma explosão de sabor! Mal posso esperar para voltar.&quot;" data-en="&quot;I loved the attention to detail and the relaxed atmosphere. The seafood stir-fry is an explosion of flavor! Can't wait to come back.&quot;">
+                        "Adorei a atenção aos detalhes e o ambiente descontraído. O picado de frutos do mar é uma explosão de sabor! Mal posso esperar para voltar."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 bg-gradient-to-br from-purple-400 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            A
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold text-gray-800 text-lg">Ana Costa</h4>
+                            <p class="text-gray-600 text-sm">Crítica de Comida</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="mb-8">
+                <h3 class="font-dancing text-4xl font-bold mb-2">Pura Vida Regional</h3>
+                <p class="text-sm text-gray-400 font-light">A sua fuga tropical na cidade.</p>
+            </div>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <i class="fab fa-facebook-f text-2xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <i class="fab fa-instagram text-2xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <i class="fab fa-tripadvisor text-2xl"></i>
+                </a>
+            </div>
+            <p class="text-sm text-gray-500">&copy; 2025 Pura Vida Regional. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Galeria de Fotos
+        const slider = document.getElementById('gallerySlider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dots = document.querySelectorAll('.gallery-dot');
+        let currentIndex = 0;
+
+        function updateSlider() {
+            const offset = -currentIndex * 100;
+            slider.style.transform = `translateX(${offset}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.remove('bg-teal-600');
+                dot.classList.add('bg-gray-300');
+                if (index === currentIndex) {
+                    dot.classList.remove('bg-gray-300');
+                    dot.classList.add('bg-teal-600');
+                }
+            });
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slider.children.length;
+            updateSlider();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slider.children.length) % slider.children.length;
+            updateSlider();
+        });
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                currentIndex = parseInt(e.target.dataset.slide);
+                updateSlider();
+            });
+        });
+
+        // Language Toggle
+        const langToggle = document.getElementById('langToggle');
+        let currentLang = 'pt';
+
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'pt' ? 'en' : 'pt';
+            document.querySelectorAll('[data-pt], [data-en]').forEach(el => {
+                el.innerText = el.dataset[currentLang];
+            });
+            langToggle.innerText = currentLang === 'pt' ? 'PT | EN' : 'EN | PT';
+        });
+    </script>
+</body>
+</html>
