@@ -63,20 +63,157 @@
         .whatsapp-float i {
             margin-top: 16px;
         }
+        
+        /* Estilos para o menu de navegação */
+        .header-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .nav-logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 28px;
+            font-weight: bold;
+            color: #0d9488;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item {
+            margin: 0 8px;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            font-size: 15px;
+            padding: 8px 12px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #0d9488;
+            background: rgba(13, 148, 136, 0.1);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #0d9488;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 968px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                transform: translateY(-10px);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-item {
+                margin: 10px 0;
+            }
+        }
+        
+        /* Ajuste para o conteúdo não ficar escondido atrás do header fixo */
+        section {
+            scroll-margin-top: 80px;
+        }
     </style>
 </head>
 <body class="font-montserrat bg-orange-50 text-gray-800">
-    <div class="fixed top-4 right-4 z-50">
-        <button id="langToggle" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-full font-semibold transition-colors shadow-lg">
-            PT | EN
-        </button>
-    </div>
+    <!-- Menu de Navegação -->
+    <nav class="header-nav">
+        <div class="nav-container">
+            <a href="#inicio" class="nav-logo">Pura Vida</a>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#inicio" class="nav-link" data-pt="Início" data-en="Home">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#pratos" class="nav-link" data-pt="Pratos do Dia" data-en="Today's Dishes">Pratos do Dia</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu" class="nav-link" data-pt="Menu Completo" data-en="Full Menu">Menu Completo</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#galeria" class="nav-link" data-pt="Galeria" data-en="Gallery">Galeria</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#avaliacoes" class="nav-link" data-pt="Avaliações" data-en="Reviews">Avaliações</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#localizacao" class="nav-link" data-pt="Localização" data-en="Location">Localização</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#reservas" class="nav-link" data-pt="Reservas" data-en="Reservations">Reservas</a>
+                </li>
+            </ul>
+            
+            <div class="fixed top-4 right-4 z-50">
+                <button id="langToggle" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-full font-semibold transition-colors shadow-lg">
+                    PT | EN
+                </button>
+            </div>
+        </div>
+    </nav>
 
     <a href="https://wa.me/351965666769" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <header class="hero-bg h-screen flex items-center justify-center text-white text-center">
+    <header id="inicio" class="hero-bg h-screen flex items-center justify-center text-white text-center" style="padding-top: 80px;">
         <div class="max-w-4xl mx-auto px-6">
             <h1 class="font-dancing text-7xl md:text-9xl font-bold mb-6" data-pt="Pura Vida Regional" data-en="Regional Pure Life">
                 Pura Vida Regional
@@ -90,7 +227,7 @@
         </div>
     </header>
 
-    <section class="py-24 bg-yellow-50 section-floral">
+    <section id="pratos" class="py-24 bg-yellow-50 section-floral">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="font-dancing text-5xl md:text-6xl font-bold text-center mb-16 text-teal-700" data-pt="Pratos Tropicais do Dia" data-en="Today's Tropical Dishes">
                 Pratos Tropicais do Dia
@@ -101,16 +238,15 @@
                     <div class="h-64 bg-cover bg-center" style="background-image: url('https://ik.imagekit.io/ij9blp5q7/Espetada%202.jpg?updatedAt=1757073088863');">
                     </div>
                     <div class="p-8 text-center">
-                        <h3 class="font-montserrat text-2xl font-bold mb-2 text-teal-600" data-pt=Autêntica espetada à Madeirense em pau de louro" data-en="Authentic Madeiran Skewer on Bay Laurel Stick">
+                        <h3 class="font-montserrat text-2xl font-bold mb-2 text-teal-600" data-pt="Autêntica espetada à Madeirense em pau de louro" data-en="Authentic Madeiran Skewer on Bay Laurel Stick">
                             Autêntica espetada à Madeirense em pau de louro
                          </h3>
                         <p class="text-gray-600 mb-4 font-light" data-pt="Espetada à Madeirense no tipico pau de louro" data-en="Authentic Madeiran Skewer on Bay Laurel Stick">
                             Espetada à Madeirense no tipico pau de louro
                         </p>
-                        <span class="text-amber-600 font-bold text-xl">€14.50</span>
+                        <span class="text-amber-600 font-bold text-xl">€16.50</span>
                     </div>
                 </div>
-
 
                 <div class="dish-card bg-white rounded-3xl overflow-hidden shadow-xl border-4 border-yellow-200">
                     <div class="h-64 bg-cover bg-center" style="background-image: url('https://ik.imagekit.io/ij9blp5q7/Peixe%20espada%20com%20banana.jpg?updatedAt=1757073093333');">
@@ -122,11 +258,9 @@
                         <p class="text-gray-600 mb-4 font-light" data-pt="Espada com banana, especialidade da Madeira" data-en="Madeiran-style scabbardfish fillet with banana">
                             Espada com banana, especialidade da Madeira
                         </p>
-                        <span class="text-amber-600 font-bold text-xl">€21.00</span>
+                        <span class="text-amber-600 font-bold text-xl">€14.00</span>
                     </div>
                 </div>
-
-
 
                 <div class="dish-card bg-white rounded-3xl overflow-hidden shadow-xl border-4 border-yellow-200">
                     <div class="h-64 bg-cover bg-center" style="background-image: url('https://ik.imagekit.io/ij9blp5q7/Bolo%20do%20caco.jpg?updatedAt=1757073089069');">
@@ -138,8 +272,9 @@
                         <p class="text-gray-600 mb-4 font-light" data-pt="Prego à Madeirense no Bolo do Caco" data-en="Madeiran-Style Steak on Bolo do Caco">
                             Prego à Madeirense no Bolo do Caco
                         </p>
-                        <span class="text-amber-600 font-bold text-xl">€21.00</span>
+                        <span class="text-amber-600 font-bold text-xl">€9.00</span>
                     </div>
+                </div>
             </div>
         </div>
     </section>
@@ -256,79 +391,106 @@
         </div>
     </section>
 
-    <section class="py-24 bg-teal-50 section-floral">
-        <div class="max-w-7xl mx-auto px-6">
+    <section id="galeria" class="py-24 bg-teal-50 section-floral">
+        <div class="max-w-5xl mx-auto px-4">
             <h2 class="font-dancing text-5xl md:text-6xl font-bold text-center mb-16 text-teal-700" data-pt="Momentos" data-en="Moments">
-                Momentos 
+                Momentos
             </h2>
-            
+
             <div class="relative">
+                <!-- Slider container -->
                 <div id="gallery" class="overflow-hidden rounded-3xl shadow-2xl">
                     <div id="gallerySlider" class="flex transition-transform duration-500 ease-in-out">
-                        <div class="w-full flex-shrink-0">
-                            <div class="h-96 md:h-[500px] bg-cover bg-center" style="background-image: url('https://ik.imagekit.io/ij9blp5q7/cocktail-praia.jpg?updatedAt=');">
-                                <div class="h-full bg-black bg-opacity-30 flex items-end">
-                                    <div class="p-8 text-white">
-                                        <h3 class="font-montserrat text-2xl font-bold mb-2" data-pt="Cocktails ao Pôr do Sol" data-en="Sunset Cocktails">Cocktails ao Pôr do Sol</h3>
-                                        <p data-pt="Aprecie a nossa seleção de bebidas na praia" data-en="Enjoy our drink selection on the beach">Aprecie a nossa seleção de bebidas na praia</p>
-                                    </div>
+                        <!-- Slide 1 -->
+                        <div class="w-full flex-shrink-0 relative h-96 md:h-[500px] flex justify-center items-center">
+                            <img src="https://ik.imagekit.io/ij9blp5q7/lapas2.png?updatedAt=1758150449972" alt="Lapas à moda da Madeira" class="h-full object-contain">
+                            <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end">
+                                <div class="p-8 text-white">
+                                    <h3 class="font-montserrat text-2xl font-bold mb-2" data-pt="Lapas à moda da Madeirense" data-en="Traditional Madeiran Limpets">Lapas à moda da Madeira</h3>
+                                    <p data-pt="A nossa especialidade" data-en="Our special treat">A nossa especialidade</p>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="w-full flex-shrink-0">
-                            <div class="h-96 md:h-[500px] bg-cover bg-center" style="background-image: url('https://ik.imagekit.io/ij9blp5q7/pratos-exoticos.jpg?updatedAt=');">
-                                <div class="h-full bg-black bg-opacity-30 flex items-end">
-                                    <div class="p-8 text-white">
-                                        <h3 class="font-montserrat text-2xl font-bold mb-2" data-pt="Delícias Exóticas" data-en="Exotic Delights">Delícias Exóticas</h3>
-                                        <p data-pt="O melhor da gastronomia tropical" data-en="The best of tropical gastronomy">O melhor da gastronomia tropical</p>
-                                    </div>
+
+                        <!-- Slide 2 -->
+                        <div class="w-full flex-shrink-0 relative h-96 md:h-[500px] flex justify-center items-center">
+                            <img src="https://ik.imagekit.io/ij9blp5q7/Gemini_Generated_Image_dm61fmdm61fmdm61.png?updatedAt=1758134206251" alt="A nossa chef Delta Freitas" class="h-full object-contain">
+                            <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end">
+                                <div class="p-8 text-white">
+                                    <h3 class="font-montserrat text-2xl font-bold mb-2" data-pt="A nossa chef Delta Freitas" data-en="Our Chef Delta Freitas">A nossa chef Delta Freitas</h3>
+                                    <p data-pt="O melhor da gastronomia tropical" data-en="The best of tropical gastronomy">O melhor da gastronomia tropical</p>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="w-full flex-shrink-0">
-                            <div class="h-96 md:h-[500px] bg-cover bg-center" style="background-image: url('https://ik.imagekit.io/ij9blp5q7/ambiente-restaurante.jpg?updatedAt=');">
-                                <div class="h-full bg-black bg-opacity-30 flex items-end">
-                                    <div class="p-8 text-white">
-                                        <h3 class="font-montserrat text-2xl font-bold mb-2" data-pt="O Nosso Paraíso" data-en="Our Paradise">O Nosso Paraíso</h3>
-                                        <p data-pt="Desfrute de um ambiente único e acolhedor" data-en="Enjoy a unique and cozy atmosphere">Desfrute de um ambiente único e acolhedor</p>
-                                    </div>
+
+                        <!-- Slide 3 -->
+                        <div class="w-full flex-shrink-0 relative h-96 md:h-[500px] flex justify-center items-center">
+                            <img src="https://ik.imagekit.io/ij9blp5q7/Gemini_Generated_Image_1l033o1l033o1l03.png?updatedAt=1758134786387" alt="O Nosso Paraíso" class="h-full object-contain">
+                            <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end">
+                                <div class="p-8 text-white">
+                                    <h3 class="font-montserrat text-2xl font-bold mb-2" data-pt="O Nosso Paraíso" data-en="Our Paradise">O Nosso Paraíso</h3>
+                                    <p data-pt="Desfrute de um ambiente único e acolhedor" data-en="Enjoy a unique and cozy atmosphere">Desfrute de um ambiente único e acolhedor</p>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="w-full flex-shrink-0">
-                            <div class="h-96 md:h-[500px] bg-cover bg-center" style="background-image: url('https://ik.imagekit.io/ij9blp5q7/ilha-paradisica.jpg?updatedAt=');">
-                                <div class="h-full bg-black bg-opacity-30 flex items-end">
-                                    <div class="p-8 text-white">
-                                        <h3 class="font-montserrat text-2xl font-bold mb-2" data-pt="Vistas de Tirar o Fôlego" data-en="Breathtaking Views">Vistas de Tirar o Fôlego</h3>
-                                        <p data-pt="Uma refeição com o melhor cenário da ilha" data-en="A meal with the best view on the island">Uma refeição com o melhor cenário da ilha</p>
-                                    </div>
+
+                        <!-- Slide 4 -->
+                        <div class="w-full flex-shrink-0 relative h-96 md:h-[500px] flex justify-center items-center">
+                            <img src="https://ik.imagekit.io/ij9blp5q7/Delta%20e%20Ant%C3%B3nio.jpg?updatedAt=1758151217498" alt="A equipa da casa" class="h-full object-contain">
+                            <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end">
+                                <div class="p-8 text-white">
+                                    <h3 class="font-montserrat text-2xl font-bold mb-2" data-pt="A equipa da casa" data-en="The home team">A equipa da casa</h3>
+                                    <p data-pt="Sem eles não era possivel" data-en="None of this would be possible without them">Sem eles não era possivel</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 5 -->
+                        <div class="w-full flex-shrink-0 relative h-96 md:h-[500px] flex justify-center items-center">
+                            <img src="https://ik.imagekit.io/ij9blp5q7/Poncha%20com%20amendoins.png?updatedAt=1758153613299" alt="Poncha" class="h-full object-contain">
+                            <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end">
+                                <div class="p-8 text-white">
+                                    <h3 class="font-montserrat text-2xl font-bold mb-2" data-pt="Poncha" data-en="Poncha">Poncha</h3>
+                                    <p data-pt="What else?" data-en="What else?">What else?</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 6 -->
+                        <div class="w-full flex-shrink-0 relative h-96 md:h-[500px] flex justify-center items-center">
+                            <img src="https://ik.imagekit.io/ij9blp5q7/Coral.jpg?updatedAt=1758152517894" alt="As fresquinhas da casa" class="h-full object-contain">
+                            <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end">
+                                <div class="p-8 text-white">
+                                    <h3 class="font-montserrat text-2xl font-bold mb-2" data-pt="As fresquinhas da casa" data-en="The house chilled beers">As fresquinhas da casa</h3>
+                                    <p data-pt="Já bebeu a sua Coral hoje?" data-en="Have you had your Coral today?">Já bebeu a sua Coral hoje?</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
+                <!-- Navegação -->
                 <button id="prevBtn" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-teal-800 p-3 rounded-full shadow-lg transition-all duration-300">
                     <i class="fas fa-chevron-left text-xl"></i>
                 </button>
                 <button id="nextBtn" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-teal-800 p-3 rounded-full shadow-lg transition-all duration-300">
                     <i class="fas fa-chevron-right text-xl"></i>
                 </button>
-                
+
+                <!-- Dots -->
                 <div class="flex justify-center mt-6 space-x-2">
                     <button class="gallery-dot w-3 h-3 rounded-full bg-teal-600 transition-all duration-300" data-slide="0"></button>
                     <button class="gallery-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-teal-400 transition-all duration-300" data-slide="1"></button>
                     <button class="gallery-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-teal-400 transition-all duration-300" data-slide="2"></button>
                     <button class="gallery-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-teal-400 transition-all duration-300" data-slide="3"></button>
+                    <button class="gallery-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-teal-400 transition-all duration-300" data-slide="4"></button>
+                    <button class="gallery-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-teal-400 transition-all duration-300" data-slide="5"></button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 bg-white">
+    <section id="avaliacoes" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="font-dancing text-5xl md:text-6xl font-bold text-center mb-16 text-teal-700" data-pt="O Que os Nossos Visitantes Dizem" data-en="What Our Visitors Say">
                 O Que os Nossos Visitantes Dizem
@@ -346,16 +508,16 @@
                         </div>
                         <span class="ml-4 text-gray-700 font-semibold text-lg">5/5</span>
                     </div>
-                    <p class="text-gray-700 mb-6 italic text-lg" data-pt="&quot;Uma verdadeira viagem ao paraíso! A comida é divinal e o ambiente faz-nos sentir de férias. A salada de frutas é imperdível!&quot;" data-en="&quot;A true trip to paradise! The food is divine and the atmosphere makes us feel on vacation. The fruit salad is a must-try!&quot;">
-                        "Uma verdadeira viagem ao paraíso! A comida é divinal e o ambiente faz-nos sentir de férias. A salada de frutas é imperdível!"
+                    <p class="text-gray-700 mb-6 italic text-lg" data-pt="&quot;Atendimento top, muita simpatia, exelente interacao com os clientes. De notar que os pratos sao realmente confecionados com paixao e mestria. Sabores muito distintos da tipica cozinha madeirense. Muitos parabéns! Com a certeza de voltar e recomendar.&quot;" data-en="&quot;Top service, great friendliness, excellent interaction with customers. It's notable that the dishes are truly prepared with passion and mastery. Very distinct flavors from typical Madeiran cuisine. Congratulations! With the certainty of returning and recommending.&quot;">
+                        "Atendimento top, muita simpatia, excelente interacao com os clientes. De notar que os pratos sao realmente confecionados com paixao e mestria. Sabores muito distintos da tipica cozinha madeirense. Muitos parabéns! Com a certeza de voltar e recomendar."
                     </p>
                     <div class="flex items-center">
                         <div class="w-14 h-14 bg-gradient-to-br from-blue-400 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                            M
+                            D
                         </div>
                         <div class="ml-4">
-                            <h4 class="font-semibold text-gray-800 text-lg">Maria Santos</h4>
-                            <p class="text-gray-600 text-sm">Viajante Satisfeita</p>
+                            <h4 class="font-semibold text-gray-800 text-lg">David C</h4>
+                            <p class="text-gray-600 text-sm">Familia de Coimbra</p>
                         </div>
                     </div>
                 </div>
@@ -371,16 +533,16 @@
                         </div>
                         <span class="ml-4 text-gray-700 font-semibold text-lg">5/5</span>
                     </div>
-                    <p class="text-gray-700 mb-6 italic text-lg" data-pt="&quot;O melhor peixe espada com banana que já provei! A poncha de maracujá é a cereja no topo do bolo. Simplesmente perfeito.&quot;" data-en="&quot;The best black scabbardfish with banana I've ever tasted! The passion fruit poncha is the cherry on top. Simply perfect.&quot;">
-                        "O melhor peixe espada com banana que já provei! A poncha de maracujá é a cereja no topo do bolo. Simplesmente perfeito."
+                    <p class="text-gray-700 mb-6 italic text-lg" data-pt="&quot;Ótimo atendimento com boas recomendações. Pratos muito bem preparados, da forma tradicional. Sabores muito distintos da tipica cozinha madeirense. Definivamente um lugar a voltar para experimentar mais pratos.&quot;" data-en="&quot;Great service with good recommendations. Dishes very well prepared, in the traditional way. Flavors very distinct from typical Madeiran cuisine. Definitely a place to return to try more dishes.&quot;">
+                        "Ótimo atendimento com boas recomendações. Pratos muito bem preparados, da forma tradicional. Sabores muito distintos da tipica cozinha madeirense. Definivamente um lugar a voltar para experimentar mais pratos."
                     </p>
                     <div class="flex items-center">
                         <div class="w-14 h-14 bg-gradient-to-br from-green-400 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                            J
+                            R
                         </div>
                         <div class="ml-4">
-                            <h4 class="font-semibold text-gray-800 text-lg">João Silva</h4>
-                            <p class="text-gray-600 text-sm">Entusiasta Gastronómico</p>
+                            <h4 class="font-semibold text-gray-800 text-lg">Rodrigo Castanheira</h4>
+                            <p class="text-gray-600 text-sm">Excelente comida, excelente conversa</p>
                         </div>
                     </div>
                 </div>
@@ -392,20 +554,116 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            
                         </div>
-                        <span class="ml-4 text-gray-700 font-semibold text-lg">5/5</span>
+                        <span class="ml-4 text-gray-700 font-semibold text-lg">4/5</span>
                     </div>
-                    <p class="text-gray-700 mb-6 italic text-lg" data-pt="&quot;Adorei a atenção aos detalhes e o ambiente descontraído. O picado de frutos do mar é uma explosão de sabor! Mal posso esperar para voltar.&quot;" data-en="&quot;I loved the attention to detail and the relaxed atmosphere. The seafood stir-fry is an explosion of flavor! Can't wait to come back.&quot;">
-                        "Adorei a atenção aos detalhes e o ambiente descontraído. O picado de frutos do mar é uma explosão de sabor! Mal posso esperar para voltar."
+                    <p class="text-gray-700 mb-6 italic text-lg" data-pt="&quot;Um espaço especializado na cozinha regional madeirense, com sabores autênticos, pratos bem confecionados e muito apaladados. Um ambiente bem disposto, descontraído e agradável.&quot;" data-en="&quot;A space specialized in Madeiran regional cuisine, with authentic flavors, well-prepared, and very tasty dishes. A cheerful, relaxed, and pleasant atmosphere.&quot;">
+                        "Um espaço especializado na cozinha regional madeirense, com sabores autênticos, pratos bem confecionados e muito apaladados. Um ambiente bem disposto, descontraído e agradável."
                     </p>
                     <div class="flex items-center">
                         <div class="w-14 h-14 bg-gradient-to-br from-purple-400 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                            A
+                            L
                         </div>
                         <div class="ml-4">
-                            <h4 class="font-semibold text-gray-800 text-lg">Ana Costa</h4>
-                            <p class="text-gray-600 text-sm">Crítica de Comida</p>
+                            <h4 class="font-semibold text-gray-800 text-lg">Luis Filipe</h4>
+                            <p class="text-gray-600 text-sm">Cliente habitual</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center mt-12">
+                <p class="text-gray-600 mb-6" data-pt="Quer partilhar a sua experiência connosco?" data-en="Want to share your experience with us?">
+                    Quer partilhar a sua experiência connosco?
+                </p>
+                <a href="https://www.tripadvisor.com.br/UserReviewEdit-g1132025-d25576485-Pura_Vida_Regional-Amadora_Lisbon_District_Central_Portugal.html" target="_blank" class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors inline-block" data-pt="Deixar Avaliação" data-en="Leave Review">
+                    Deixar Avaliação
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localização e Reservas -->
+    <section id="localizacao" class="py-20 bg-blue-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Mapa -->
+                <div>
+                    <h2 class="font-montserrat text-3xl font-bold mb-8 text-gray-800" data-pt="Localização" data-en="Location">
+                        Localização
+                    </h2>
+                    <div class="bg-white rounded-xl p-8 shadow-lg">
+                        <div class="h-64 rounded-lg overflow-hidden mb-6">
+                            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1kwx0YJfY4mlDS-LoCQYYY5fQgHjrzZM&ehbc=2E312F&noprof=1" width="100%" height="100%"></iframe>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-amber-600 mr-3"></i>
+                                <span data-pt="Av. Fernando Valle 17 A, 2700-392 Amadora" data-en="Av. Fernando Valle 17 A, 2700-392 Amadora">Av. Fernando Valle 17 A, 2700-392 Amadora</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-amber-600 mr-3"></i>
+                                <span data-pt="Ter-Dom: 12:00-15:00, 19:00-23:00" data-en="Tue-Sun: 12:00-15:00, 19:00-23:00">Ter-Dom: 12:00-15:00, 19:00-23:00</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone text-amber-600 mr-3"></i>
+                                <span>+351 965 666 769</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário de Reservas -->
+                <div id="reservas">
+                    <h2 class="font-montserrat text-3xl font-bold mb-8 text-gray-800" data-pt="Fazer Reserva" data-en="Make Reservation">
+                        Fazer Reserva
+                    </h2>
+                    <div class="bg-white rounded-xl p-8 shadow-lg">
+                        <form id="reservationForm" class="space-y-6">
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2" data-pt="Nome Completo" data-en="Full Name">Nome Completo</label>
+                                <input type="text" id="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent" data-pt-placeholder="Seu nome completo" data-en-placeholder="Your full name">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2" data-pt="Telefone" data-en="Phone">Telefone</label>
+                                <input type="tel" id="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent" data-pt-placeholder="Seu número de telefone" data-en-placeholder="Your phone number">
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2" data-pt="Data" data-en="Date">Data</label>
+                                    <input type="date" id="date" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2" data-pt="Hora" data-en="Time">Hora</label>
+                                    <select id="time" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent">
+                                        <option value="">Selecionar hora</option>
+                                        <option value="12:00">12:00</option>
+                                        <option value="12:30">12:30</option>
+                                        <option value="13:00">13:00</option>
+                                        <option value="13:30">13:30</option>
+                                        <option value="14:00">14:00</option>
+                                        <option value="14:30">14:30</option>
+                                        <option value="19:00">19:00</option>
+                                        <option value="19:30">19:30</option>
+                                        <option value="20:00">20:00</option>
+                                        <option value="20:30">20:30</option>
+                                        <option value="21:00">21:00</option>
+                                        <option value="21:30">21:30</option>
+                                        <option value="22:00">22:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors" data-pt="Confirmar Reserva" data-en="Confirm Reservation">
+                                Confirmar Reserva
+                            </button>
+                        </form>
+                        <div id="reservationSuccess" class="hidden mt-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+                            <p data-pt="Reserva confirmada! Entraremos em contacto em breve." data-en="Reservation confirmed! We'll contact you soon.">
+                                Reserva confirmada! Entraremos em contacto em breve.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -413,76 +671,280 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <div class="mb-8">
-                <h3 class="font-dancing text-4xl font-bold mb-2">Pura Vida Regional</h3>
-                <p class="text-sm text-gray-400 font-light">A sua fuga tropical na cidade.</p>
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="font-dancing text-2xl font-bold mb-4">Pura Vida Tradicional</h3>
+                    <p class="text-gray-300" data-pt="Sabores autênticos da Madeira na Amadora" data-en="Authentic flavors of Madeira in Amadora">
+                        Sabores autênticos da Madeira na Amadora
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4" data-pt="Contactos" data-en="Contact">Contactos</h4>
+                    <div class="space-y-2 text-gray-300">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <a href="mailto:info@puravidatradicional.pt" class="hover:text-amber-400">info@puravidatradicional.pt</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone mr-3"></i>
+                            <a href="tel:+351965666769" class="hover:text-amber-400">+351 965 666 769</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fab fa-whatsapp mr-3"></i>
+                            <a href="https://wa.me/351965666769" class="hover:text-amber-400">+351 965 666 769</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4" data-pt="Redes Sociais" data-en="Social Media">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/puravida.regional/?locale=pt_PT" class="text-2xl hover:text-amber-400 transition-colors" target="_blank">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/puravida.regional/" class="text-2xl hover:text-amber-400 transition-colors" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tripadvisor.com.br/Restaurant_Review-g1132025-d25576485-Reviews-Pura_Vida_Regional-Amadora_Lisbon_District_Central_Portugal.html" class="hover:text-amber-400 transition-colors" target="_blank">
+                            <svg width="24" height="24" viewBox="0 -96 512.2 512.2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M128.2 127.9C92.7 127.9 64 156.6 64 192c0 35.4 28.7 极.1 64.1 64.1 35.4 0 64.1-28.7 64.1-64.1.1-35.4-28.6-64.1-64-64.1zm0 110c-25.3 0-45.9-20.5-45.9-45.9s20.5-45.9 45.9-45.9S174 166.7 174 192s-20.5 45.9-45.8 45.9z"/>
+                                <circle cx="128.4" cy="191.9" r="31.9"/>
+                                <path d="M384.2 127.9c-35.4 0-64.1 28.7-64.1 64.1 0 35.4 28.7 64.1 64.1 64.1 35.4 0 64.1-28.7 64.1-64.1 0-35.4-28.7-64.1-64.1-64.1zm0 110c-25.3 0-45.9-20.5-45.9-45.9s20.5-45.9 45.9-45.9S430 极.7 430 192s-20.5 45.9-45.8 45.9z"/>
+                                <circle cx="384.4" cy="191.9" r="31.9"/>
+                                <path d="M474.4 101.2l37.7-37.4h-76.4C392.9 29 321.8 0 255.9 0c-66 0-136.5 29-179.3 63.8H0l37.7 37.4C14.4 124.4 0 156.5 0 192c0 70.8 57.4 128.2 128.2 128.2 32.5 0 62.2-12.1 84.8-32.1l43.4 31.9 42.9-31.2-.5-1.2c22.7 20.2 52.5 32.5 85.3 32.5 70.8 0 128.2-57.4 128.2-128.2-.1-35.4-14.6-67.5-37.9-90.7zM368 64.8c-60.7 7.6-108.3 57.6-111.9 119.5-3.7-62-51.4-112.1-112.3-119.5 30.6-22 69.6-32.8 112.1-32.8S337.4 42.8 368 64.8zM128.2 288.2C75 288.2 32 245.1 32 192s43.1-96.2 96.2-96.2 96.2 43.1 96.2 96.2c-.1 53.1-43.1 96.2-96.2 96.2zm256 0c-53.1 0-96.2-43.1-96.2-96.2s43.1-96.2 96.2-96.2 96.2 43.1 96.2 96.2c-.1 53.1-43.1 96.2-96.2 96.2z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
-                    <i class="fab fa-facebook-f text-2xl"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
-                    <i class="fab fa-instagram text-2xl"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
-                    <i class="fab fa-tripadvisor text-2xl"></i>
-                </a>
+            
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p data-pt="© 2023 Pura Vida Regional. Todos os direitos reservados." data-en="© 2023 Pura Vida Regional. All rights reserved.">
+                    © 2023 Pura Vida Regional. Todos os direitos reservados.
+                </p>
             </div>
-            <p class="text-sm text-gray-500">&copy; 2025 Pura Vida Regional. Todos os direitos reservados.</p>
         </div>
     </footer>
-    
-    <script>
-        // Galeria de Fotos
-        const slider = document.getElementById('gallerySlider');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const dots = document.querySelectorAll('.gallery-dot');
-        let currentIndex = 0;
 
-        function updateSlider() {
-            const offset = -currentIndex * 100;
-            slider.style.transform = `translateX(${offset}%)`;
-            dots.forEach((dot, index) => {
-                dot.classList.remove('bg-teal-600');
-                dot.classList.add('bg-gray-300');
-                if (index === currentIndex) {
-                    dot.classList.remove('bg-gray-300');
-                    dot.classList.add('bg-teal-600');
+    <script>
+        // Language Toggle Functionality
+        let currentLang = 'pt';
+        
+        function translatePage(lang) {
+            const elements = document.querySelectorAll('[data-pt][data-en]');
+            elements.forEach(element => {
+                if (lang === 'en') {
+                    element.textContent = element.getAttribute('data-en');
+                } else {
+                    element.textContent = element.getAttribute('data-pt');
+                }
+            });
+            
+            // Handle placeholders
+            const inputElements = document.querySelectorAll('[data-pt-placeholder][data-en-placeholder]');
+            inputElements.forEach(element => {
+                if (lang === 'en') {
+                    element.placeholder = element.getAttribute('data-en-placeholder');
+                } else {
+                    element.placeholder = element.getAttribute('data-pt-placeholder');
+                }
+            });
+            
+            // Handle select options
+            const timeSelect = document.getElementById('time');
+            if (timeSelect) {
+                const firstOption = timeSelect.querySelector('option[value=""]');
+                if (firstOption) {
+                    if (lang === 'en') {
+                        firstOption.textContent = 'Select time';
+                    } else {
+                        firstOption.textContent = 'Selecionar hora';
+                    }
+                }
+            }
+            
+            // Traduzir o menu de navegação
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                if (lang === 'en') {
+                    link.textContent = link.getAttribute('data-en');
+                } else {
+                    link.textContent = link.getAttribute('data-pt');
                 }
             });
         }
-
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % slider.children.length;
-            updateSlider();
-        });
-
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + slider.children.length) % slider.children.length;
-            updateSlider();
-        });
-
-        dots.forEach(dot => {
-            dot.addEventListener('click', (e) => {
-                currentIndex = parseInt(e.target.dataset.slide);
-                updateSlider();
-            });
-        });
-
-        // Language Toggle
-        const langToggle = document.getElementById('langToggle');
-        let currentLang = 'pt';
-
-        langToggle.addEventListener('click', () => {
+        
+        document.getElementById('langToggle').addEventListener('click', function() {
             currentLang = currentLang === 'pt' ? 'en' : 'pt';
-            document.querySelectorAll('[data-pt], [data-en]').forEach(el => {
-                el.innerText = el.dataset[currentLang];
-            });
-            langToggle.innerText = currentLang === 'pt' ? 'PT | EN' : 'EN | PT';
+            translatePage(currentLang);
+            
+            // Update button text
+            this.textContent = currentLang === 'pt' ? 'PT | EN' : 'EN | PT';
         });
+        
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                
+                // Alterar ícone
+                const icon = mobileMenuBtn.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        }
+        
+        // Fechar menu ao clicar em um link (em dispositivos móveis)
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 968) {
+                    navMenu.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const target = document.querySelector(targetId);
+                if (target) {
+                    // Calcular a posição considerando o header fixo
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Mudar estilo do header ao scrollar
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header-nav');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                header.style.padding = '10px 0';
+            } else {
+                header.style.boxShadow = 'none';
+                header.style.padding = '15px 0';
+            }
+        });
+        
+        // Reservation Form Functionality
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            
+            if (name && phone && date && time) {
+                // Hide form and show success message
+                this.style.display = 'none';
+                document.getElementById('reservationSuccess').classList.remove('hidden');
+                
+                // Reset form after 5 seconds
+                setTimeout(() => {
+                    this.style.display = 'block';
+                    document.getElementById('reservationSuccess').classList.add('hidden');
+                    this.reset();
+                }, 5000);
+            }
+        });
+        
+        // Set minimum date to today for reservation form
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date').setAttribute('min', today);
+        
+        // Gallery Slider Functionality
+        let currentSlide = 0;
+        const totalSlides = document.querySelectorAll('#gallerySlider > div').length;
+        const slider = document.getElementById('gallerySlider');
+        const dots = document.querySelectorAll('.gallery-dot');
+        
+        function updateSlider() {
+            const translateX = -currentSlide * 100;
+            slider.style.transform = `translateX(${translateX}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.remove('bg-gray-300');
+                    dot.classList.add('bg-teal-600');
+                } else {
+                    dot.classList.remove('bg-teal-600');
+                    dot.classList.add('bg-gray-300');
+                }
+            });
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+        
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateSlider();
+        }
+        
+        // Event listeners for gallery
+        document.getElementById('nextBtn').addEventListener('click', nextSlide);
+        document.getElementById('prevBtn').addEventListener('click', prevSlide);
+        
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => goToSlide(index));
+        });
+        
+        // Auto-play gallery (optional)
+        let autoPlayInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        
+        // Pause auto-play on hover
+        const gallery = document.getElementById('gallery');
+        
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextSlide, 5000);
+        }
+        
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+        
+        gallery.addEventListener('mouseenter', stopAutoPlay);
+        gallery.addEventListener('mouseleave', startAutoPlay);
+        
+        // Start auto-play initially
+        startAutoPlay();
     </script>
 </body>
 </html>
